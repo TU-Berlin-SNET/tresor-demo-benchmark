@@ -97,6 +97,8 @@ Benchmark.benchmark(Benchmark::CAPTION, 16, Benchmark::FORMAT, '>total:') do |bm
     end
 
     [total]
+  rescue Mechanize::ResponseCodeError => e
+    puts e.page.body
   rescue Exception => e
     puts e
   end
